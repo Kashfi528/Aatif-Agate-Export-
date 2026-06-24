@@ -1,1234 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Aatif Agate Export – Premium Agate & Crystal Manufacturer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Aatif Agate Export – Premium agate, crystals, chakra products and gemstone items from Khambhat, India." />
-  <style>
-    :root {
-      --bg-gradient: radial-gradient(circle at top left, #4b6fff, #1b1b3a 40%, #050510 80%);
-      --card-bg: rgba(15, 20, 40, 0.75);
-      --accent: #d4af37;
-      --accent-soft: rgba(212, 175, 55, 0.35);
-      --text-main: #f5f7ff;
-      --text-muted: #a7b0d8;
-      --danger: #ff4b6b;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: var(--bg-gradient);
-      color: var(--text-main);
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* 3D glassmorphism layout */
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px 16px 64px;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 32px;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .logo-3d {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
-      background: conic-gradient(from 180deg, #d4af37, #7cf3ff, #b58cff, #d4af37);
-      box-shadow:
-        0 0 0 2px rgba(255, 255, 255, 0.08),
-        0 12px 30px rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .logo-3d::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border-radius: 14px;
-      background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.7), transparent 55%);
-      mix-blend-mode: screen;
-    }
-
-    .logo-gem {
-      width: 22px;
-      height: 22px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, #050510, #7cf3ff);
-      box-shadow:
-        0 0 12px rgba(124, 243, 255, 0.7),
-        0 6px 12px rgba(0, 0, 0, 0.7);
-      transform: rotate(18deg);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-text h1 {
-      font-size: 1.4rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .brand-text span {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    nav {
-      display: flex;
-      gap: 16px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(5, 8, 20, 0.7);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    nav a {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 999px;
-      transition: all 0.2s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--text-main);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    /* Hero section */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-
-    .hero-left {
-      padding: 22px 22px 26px;
-      border-radius: 24px;
-      background: var(--card-bg);
-      backdrop-filter: blur(22px);
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.04);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-left::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(124, 243, 255, 0.18), transparent 55%),
-        radial-gradient(circle at 100% 0%, rgba(181, 140, 255, 0.18), transparent 55%);
-      opacity: 0.9;
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-
-    .hero-kicker {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-soft);
-      margin-bottom: 10px;
-    }
-
-    .hero-title {
-      font-size: 2.1rem;
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-
-    .hero-sub {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 480px;
-      margin-bottom: 18px;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .hero-tag {
-      font-size: 0.75rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(5, 8, 20, 0.7);
-      color: var(--text-muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      font-size: 0.85rem;
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #d4af37, #ffdd7c);
-      color: #050510;
-      box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.12);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow:
-        0 14px 30px rgba(0, 0, 0, 0.8),
-        0 0 0 1px rgba(255, 255, 255, 0.18);
-    }
-
-    .btn-secondary {
-      background: rgba(5, 8, 20, 0.8);
-      color: var(--text-muted);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text-main);
-    }
-
-    .hero-note {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .hero-right {
-      border-radius: 24px;
-      background: radial-gradient(circle at 0% 0%, rgba(124, 243, 255, 0.18), transparent 55%),
-                  radial-gradient(circle at 100% 100%, rgba(181, 140, 255, 0.18), transparent 55%);
-      position: relative;
-      overflow: hidden;
-      padding: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .preview-card {
-      width: 100%;
-      max-width: 360px;
-      border-radius: 22px;
-      background: rgba(5, 8, 20, 0.85);
-      backdrop-filter: blur(18px);
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.8),
-        0 0 0 1px rgba(255, 255, 255, 0.06);
-      padding: 16px 16px 18px;
-      position: relative;
-    }
-
-    .preview-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .preview-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .preview-pill {
-      font-size: 0.7rem;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(124, 243, 255, 0.12);
-      color: #7cf3ff;
-    }
-
-    .preview-image {
-      height: 160px;
-      border-radius: 16px;
-      background:
-        radial-gradient(circle at 20% 0%, rgba(124, 243, 255, 0.4), transparent 55%),
-        radial-gradient(circle at 80% 100%, rgba(181, 140, 255, 0.4), transparent 55%),
-        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.35), transparent 55%);
-      box-shadow:
-        inset 0 0 40px rgba(0, 0, 0, 0.7),
-        0 14px 30px rgba(0, 0, 0, 0.9);
-      margin-bottom: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .preview-gem {
-      position: absolute;
-      inset: 26px;
-      border-radius: 26px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.7), transparent 55%);
-      mix-blend-mode: screen;
-    }
-
-    .preview-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .preview-footer span strong {
-      color: var(--accent);
-    }
-
-    /* Category grid */
-    .section-title {
-      font-size: 1.1rem;
-      margin: 26px 0 12px;
-    }
-
-    .section-sub {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .category-card {
-      border-radius: 18px;
-      background: var(--card-bg);
-      backdrop-filter: blur(18px);
-      box-shadow:
-        0 14px 32px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.04);
-      padding: 12px 12px 14px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-
-    .category-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(124, 243, 255, 0.18), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(181, 140, 255, 0.18), transparent 55%);
-      opacity: 0;
-      transition: opacity 0.18s ease;
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-
-    .category-card:hover {
-      transform: translateY(-4px);
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.9),
-        0 0 0 1px rgba(255, 255, 255, 0.08);
-    }
-
-    .category-card:hover::before {
-      opacity: 1;
-    }
-
-    .category-name {
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
-
-    .category-meta {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .category-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 0.7rem;
-    }
-
-    .category-chip {
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted);
-    }
-
-    /* Gallery section */
-    .gallery-section {
-      margin-bottom: 32px;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 14px;
-    }
-
-    .gallery-item {
-      border-radius: 16px;
-      background: var(--card-bg);
-      backdrop-filter: blur(18px);
-      box-shadow:
-        0 14px 32px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.04);
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-3px);
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.9),
-        0 0 0 1px rgba(255, 255, 255, 0.08);
-    }
-
-    .gallery-thumb {
-      height: 120px;
-      background: radial-gradient(circle at 20% 0%, rgba(124, 243, 255, 0.3), transparent 55%),
-                  radial-gradient(circle at 80% 100%, rgba(181, 140, 255, 0.3), transparent 55%);
-      position: relative;
-    }
-
-    .gallery-thumb::after {
-      content: "";
-      position: absolute;
-      inset: 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      mix-blend-mode: screen;
-    }
-
-    .gallery-info {
-      padding: 8px 10px 10px;
-      font-size: 0.8rem;
-    }
-
-    .gallery-name {
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .gallery-code {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    /* Modal viewer */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-      padding: 16px;
-    }
-
-    .modal {
-      max-width: 520px;
-      width: 100%;
-      border-radius: 22px;
-      background: rgba(5, 8, 20, 0.95);
-      backdrop-filter: blur(22px);
-      box-shadow:
-        0 24px 60px rgba(0, 0, 0, 0.9),
-        0 0 0 1px rgba(255, 255, 255, 0.08);
-      padding: 16px 16px 18px;
-      position: relative;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 12px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      color: var(--text-muted);
-    }
-
-    .modal-image {
-      height: 220px;
-      border-radius: 18px;
-      background: radial-gradient(circle at 20% 0%, rgba(124, 243, 255, 0.4), transparent 55%),
-                  radial-gradient(circle at 80% 100%, rgba(181, 140, 255, 0.4), transparent 55%),
-                  radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.35), transparent 55%);
-      box-shadow:
-        inset 0 0 40px rgba(0, 0, 0, 0.7),
-        0 14px 30px rgba(0, 0, 0, 0.9);
-      margin-bottom: 12px;
-      position: relative;
-    }
-
-    .modal-details {
-      font-size: 0.85rem;
-    }
-
-    .modal-details h3 {
-      margin-bottom: 4px;
-    }
-
-    .modal-details p {
-      margin-bottom: 4px;
-      color: var(--text-muted);
-    }
-
-    .modal-details .code {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .modal-details .hint {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* Reviews */
-    .reviews {
-      margin-bottom: 32px;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .review-card {
-      border-radius: 18px;
-      background: var(--card-bg);
-      backdrop-filter: blur(18px);
-      box-shadow:
-        0 14px 32px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.04);
-      padding: 12px 12px 14px;
-      font-size: 0.8rem;
-    }
-
-    .review-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-
-    .review-name {
-      font-weight: 600;
-    }
-
-    .review-role {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .review-stars {
-      font-size: 0.8rem;
-      color: #ffd86b;
-    }
-
-    .review-body {
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .review-meta {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
-
-    /* Contact + footer */
-    .contact {
-      margin-bottom: 24px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .contact-card {
-      border-radius: 18px;
-      background: var(--card-bg);
-      backdrop-filter: blur(18px);
-      box-shadow:
-        0 14px 32px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.04);
-      padding: 12px 12px 14px;
-      font-size: 0.8rem;
-    }
-
-    .contact-card h3 {
-      margin-bottom: 6px;
-    }
-
-    .contact-card p {
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .contact-card a {
-      color: #7cf3ff;
-      text-decoration: none;
-    }
-
-    .contact-card a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-highlight {
-      border-left: 2px solid var(--accent);
-      padding-left: 10px;
-    }
-
-    footer {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-align: center;
-      padding-bottom: 12px;
-    }
-
-    footer span {
-      color: var(--accent-soft);
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .contact {
-        grid-template-columns: 1fr;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      nav {
-        align-self: stretch;
-        justify-content: center;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aatif Agate Export | Premium Agate Manufacturer & Wholesale Exporter</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ------------------------------
+   GLOBAL STYLES
+------------------------------ */
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #4b6fff, #1b1b3a 40%, #050510 80%);
+  font-family: Inter, sans-serif;
+  color: #f5f7ff;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: Fraunces, serif;
+}
+
+/* ------------------------------
+   HEADER + 3D LOGO
+------------------------------ */
+
+header {
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-3d {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background: conic-gradient(from 180deg, #d4af37, #7cf3ff, #b58cff, #d4af37);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+.logo-gem {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #050510, #7cf3ff);
+  box-shadow: 0 0 12px rgba(124,243,255,0.7);
+  transform: rotate(18deg);
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+}
+
+.brand-text span {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* 3D animations */
+@keyframes logo-spin-once {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes brand-pop-in {
+  0% { transform: translateY(12px) scale(0.9); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.logo-3d.animate-once {
+  animation: logo-spin-once 1.2s ease-out;
+}
+
+.brand-text.animate-once {
+  animation: brand-pop-in 1s ease-out;
+}
+
+/* ------------------------------
+   HERO SECTION
+------------------------------ */
+
+.hero {
+  padding: 40px;
+  max-width: 900px;
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1rem;
+  opacity: 0.8;
+  max-width: 600px;
+}
+
+/* ------------------------------
+   FIXED LEFT SIDEBAR (DESKTOP)
+------------------------------ */
+
+.sidebar {
+  position: fixed;
+  top: 180px;
+  left: 0;
+  width: 180px;
+  padding: 20px;
+  background: rgba(5,8,20,0.6);
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(255,255,255,0.1);
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10;
+}
+
+.sidebar button {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ------------------------------
+   MOBILE HAMBURGER MENU
+------------------------------ */
+
+.mobile-menu {
+  display: none;
+  padding: 20px;
+}
+
+.mobile-menu button {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.mobile-dropdown {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.mobile-dropdown button {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 8px;
+  color: #fff;
+  text-align: left;
+}
+
+/* ------------------------------
+   GALLERY CONTAINER
+------------------------------ */
+
+.gallery-container {
+  margin-left: 220px;
+  padding: 40px;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotate3D {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.gallery-container.rotate {
+  animation: rotate3D 0.8s ease;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.gallery-item:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.gallery-item .name {
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+.gallery-item .code {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* ------------------------------
+   MODAL
+------------------------------ */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.modal {
+  background: rgba(5,8,20,0.95);
+  padding: 20px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.modal h3 {
+  margin: 10px 0 4px;
+}
+
+.modal p {
+  opacity: 0.8;
+  margin: 4px 0;
+}
+
+.modal-close {
+  text-align: right;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* ------------------------------
+   CONTACT SECTION
+------------------------------ */
+
+.contact {
+  padding: 40px;
+  margin-left: 220px;
+}
+
+.contact-card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ------------------------------
+   MOBILE RESPONSIVE
+------------------------------ */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .gallery-container,
+  .contact {
+    margin-left: 0;
+  }
+}
+
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <!-- HEADER -->
-    <header>
-      <div class="logo-wrap">
-        <div class="logo-3d">
-          <div class="logo-gem"></div>
-        </div>
-        <div class="brand-text">
-          <h1>AATIF AGATE EXPORT</h1>
-          <span>Premium Agate & Crystal Manufacturer</span>
-        </div>
-      </div>
-      <nav>
-        <a href="#categories" class="active">Categories</a>
-        <a href="#gallery">Products</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left">
-        <div class="hero-kicker">Khambhat • India • Global Export</div>
-        <h2 class="hero-title">Premium agate & crystal products for serious buyers.</h2>
-        <p class="hero-sub">
-          Aatif Agate Export supplies tumbled stones, towers, spheres, chakra tools, pendulums, trees and raw chunks
-          to wholesale and retail buyers worldwide.
-        </p>
-        <div class="hero-tags">
-          <span class="hero-tag">Tumbled Stones</span>
-          <span class="hero-tag">Towers & Obelisks</span>
-          <span class="hero-tag">Spheres & Merkaba</span>
-          <span class="hero-tag">Bracelets & Angels</span>
-          <span class="hero-tag">Raw Chunks & Trees</span>
-        </div>
-        <div class="hero-actions">
-          <a href="#gallery" class="btn-primary">Browse Products</a>
-          <a href="#contact" class="btn-secondary">Wholesale Inquiry</a>
-        </div>
-        <div class="hero-note">
-          Note product codes when you click an item and mention them in your WhatsApp or email inquiry.
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="preview-card">
-          <div class="preview-header">
-            <div class="preview-title">Collection Preview</div>
-            <div class="preview-pill">3D Glassmorphism</div>
-          </div>
-          <div class="preview-image">
-            <div class="preview-gem"></div>
-          </div>
-          <div class="preview-footer">
-            <span>Curated for <strong>agate buyers</strong></span>
-            <span>Hover, click & explore</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <div class="logo-3d" id="logo-3d">
+      <div class="logo-gem"></div>
+    </div>
+    <div class="brand-text" id="brand-text">
+      <h1>AATIF AGATE EXPORT</h1>
+      <span>Premium Agate & Crystal Manufacturer</span>
+    </div>
+  </div>
+</header>
 
-    <!-- CATEGORY GRID -->
-    <section id="categories">
-      <h3 class="section-title">Shop by category</h3>
-      <p class="section-sub">
-        Click a category below, then explore individual products with names and codes for easy inquiry.
-      </p>
-      <div class="category-grid">
-        <div class="category-card" data-category="Tumbled">
-          <div class="category-name">Tumbled Stones</div>
-          <div class="category-meta">High‑demand polished stones for retail & healing.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Amethyst</span>
-            <span class="category-chip">Rose Quartz</span>
-            <span class="category-chip">Mixed Chakra</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Tower">
-          <div class="category-name">Towers</div>
-          <div class="category-meta">Standing points for display, décor & energy work.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Clear Quartz</span>
-            <span class="category-chip">Amethyst</span>
-            <span class="category-chip">Labradorite</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Sphere Balls">
-          <div class="category-name">Sphere Balls</div>
-          <div class="category-meta">Perfect round crystals for collectors & shops.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Quartz</span>
-            <span class="category-chip">Obsidian</span>
-            <span class="category-chip">Rose Quartz</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Obelisks">
-          <div class="category-name">Obelisks</div>
-          <div class="category-meta">Elegant vertical cuts for premium displays.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Tiger Eye</span>
-            <span class="category-chip">Sodalite</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Angels">
-          <div class="category-name">Angels</div>
-          <div class="category-meta">Carved guardian figures in popular stones.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Rose Quartz</span>
-            <span class="category-chip">Amethyst</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Bracelets">
-          <div class="category-name">Bracelets</div>
-          <div class="category-meta">Wearable crystal energy for everyday use.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">7 Chakra</span>
-            <span class="category-chip">Tourmaline</span>
-            <span class="category-chip">Rose Quartz</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Palmtone">
-          <div class="category-name">Palmtone</div>
-          <div class="category-meta">Smooth palm stones for meditation & grounding.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Labradorite</span>
-            <span class="category-chip">Amethyst</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Puffy Heart">
-          <div class="category-name">Puffy Hearts</div>
-          <div class="category-meta">Heart‑shaped crystals for gifting & retail.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Rose Quartz</span>
-            <span class="category-chip">Quartz</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Thumbs">
-          <div class="category-name">Thumbs (Worry Stones)</div>
-          <div class="category-meta">Thumb‑shaped stones for stress relief.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Amethyst</span>
-            <span class="category-chip">Obsidian</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Pendulum">
-          <div class="category-name">Pendulums</div>
-          <div class="category-meta">Crystal & chakra pendulums for divination.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Quartz</span>
-            <span class="category-chip">7 Chakra</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Agate trees">
-          <div class="category-name">Agate Trees</div>
-          <div class="category-meta">Gemstone trees for décor & energy balancing.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">7 Chakra</span>
-            <span class="category-chip">Amethyst</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Merkaba">
-          <div class="category-name">Merkaba (Star)</div>
-          <div class="category-meta">Sacred geometry star forms in crystals.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Quartz</span>
-            <span class="category-chip">Amethyst</span>
-          </div>
-        </div>
-        <div class="category-card" data-category="Raw Chunks">
-          <div class="category-name">Raw Chunks (Hammered)</div>
-          <div class="category-meta">Natural raw pieces for cutting, display & sets.</div>
-          <div class="category-chip-row">
-            <span class="category-chip">Amethyst</span>
-            <span class="category-chip">Tourmaline</span>
-            <span class="category-chip">Citrine</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <h2>Premium Agate & Crystal Products from Khambhat, India</h2>
+  <p>We manufacture tumbled stones, spheres, hearts and more — exporting worldwide with consistent quality and 25+ years of craftsmanship.</p>
+</section>
 
-    <!-- GALLERY -->
-    <section id="gallery" class="gallery-section">
-      <h3 class="section-title">Featured products</h3>
-      <p class="section-sub">
-        Click any product to view its name and code. Use these codes when you send your inquiry.
-      </p>
-      <div class="gallery-grid" id="gallery-grid">
-        <!-- Tumbled -->
-        <div class="gallery-item" data-name="Amethyst Tumbled Stones" data-code="TUM-001" data-category="Tumbled">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Amethyst Tumbled Stones</div>
-            <div class="gallery-code">Code: TUM-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Rose Quartz Tumbled Stones" data-code="TUM-002" data-category="Tumbled">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Rose Quartz Tumbled Stones</div>
-            <div class="gallery-code">Code: TUM-002</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Mixed Chakra Tumbled Stones" data-code="TUM-003" data-category="Tumbled">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Mixed Chakra Tumbled Stones</div>
-            <div class="gallery-code">Code: TUM-003</div>
-          </div>
-        </div>
+<!-- SIDEBAR (DESKTOP) -->
+<div class="sidebar">
+  <button class="cat-btn active" data-category="tumbled">Tumbled Stones</button>
+  <button class="cat-btn" data-category="spheres">Sphere Balls</button>
+  <button class="cat-btn" data-category="hearts">Puffy Hearts</button>
+</div>
 
-        <!-- Towers -->
-        <div class="gallery-item" data-name="Clear Quartz Tower" data-code="TOW-001" data-category="Tower">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Clear Quartz Tower</div>
-            <div class="gallery-code">Code: TOW-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Amethyst Tower" data-code="TOW-002" data-category="Tower">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Amethyst Tower</div>
-            <div class="gallery-code">Code: TOW-002</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Labradorite Tower" data-code="TOW-003" data-category="Tower">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Labradorite Tower</div>
-            <div class="gallery-code">Code: TOW-003</div>
-          </div>
-        </div>
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <button id="menu-toggle">☰ Categories</button>
+  <div class="mobile-dropdown" id="mobile-dropdown">
+    <button class="cat-btn" data-category="tumbled">Tumbled Stones</button>
+    <button class="cat-btn" data-category="spheres">Sphere Balls</button>
+    <button class="cat-btn" data-category="hearts">Puffy Hearts</button>
+  </div>
+</div>
 
-        <!-- Sphere Balls -->
-        <div class="gallery-item" data-name="Clear Quartz Sphere" data-code="SPH-001" data-category="Sphere Balls">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Clear Quartz Sphere</div>
-            <div class="gallery-code">Code: SPH-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Amethyst Sphere" data-code="SPH-002" data-category="Sphere Balls">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Amethyst Sphere</div>
-            <div class="gallery-code">Code: SPH-002</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Black Obsidian Sphere" data-code="SPH-003" data-category="Sphere Balls">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Black Obsidian Sphere</div>
-            <div class="gallery-code">Code: SPH-003</div>
-          </div>
-        </div>
+<!-- GALLERY -->
+<div class="gallery-container" id="gallery-container">
 
-        <!-- Obelisks -->
-        <div class="gallery-item" data-name="Tiger Eye Obelisk" data-code="OBL-001" data-category="Obelisks">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Tiger Eye Obelisk</div>
-            <div class="gallery-code">Code: OBL-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Sodalite Obelisk" data-code="OBL-002" data-category="Obelisks">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Sodalite Obelisk</div>
-            <div class="gallery-code">Code: OBL-002</div>
-          </div>
-        </div>
+  <div class="gallery-grid" id="gallery-grid">
 
-        <!-- Angels -->
-        <div class="gallery-item" data-name="Rose Quartz Angel" data-code="ANG-001" data-category="Angels">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Rose Quartz Angel</div>
-            <div class="gallery-code">Code: ANG-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Amethyst Angel" data-code="ANG-002" data-category="Angels">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Amethyst Angel</div>
-            <div class="gallery-code">Code: ANG-002</div>
-          </div>
-        </div>
-
-        <!-- Bracelets -->
-        <div class="gallery-item" data-name="7 Chakra Bracelet" data-code="BRC-001" data-category="Bracelets">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">7 Chakra Bracelet</div>
-            <div class="gallery-code">Code: BRC-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Black Tourmaline Bracelet" data-code="BRC-002" data-category="Bracelets">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Black Tourmaline Bracelet</div>
-            <div class="gallery-code">Code: BRC-002</div>
-          </div>
-        </div>
-
-        <!-- Palmtone -->
-        <div class="gallery-item" data-name="Labradorite Palm Stone" data-code="PLM-001" data-category="Palmtone">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Labradorite Palm Stone</div>
-            <div class="gallery-code">Code: PLM-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Amethyst Palm Stone" data-code="PLM-002" data-category="Palmtone">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Amethyst Palm Stone</div>
-            <div class="gallery-code">Code: PLM-002</div>
-          </div>
-        </div>
-
-        <!-- Puffy Heart -->
-        <div class="gallery-item" data-name="Rose Quartz Puffy Heart" data-code="HRT-001" data-category="Puffy Heart">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Rose Quartz Puffy Heart</div>
-            <div class="gallery-code">Code: HRT-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Clear Quartz Puffy Heart" data-code="HRT-002" data-category="Puffy Heart">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Clear Quartz Puffy Heart</div>
-            <div class="gallery-code">Code: HRT-002</div>
-          </div>
-        </div>
-
-        <!-- Thumbs -->
-        <div class="gallery-item" data-name="Amethyst Worry Stone" data-code="THM-001" data-category="Thumbs">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Amethyst Worry Stone</div>
-            <div class="gallery-code">Code: THM-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Black Obsidian Worry Stone" data-code="THM-002" data-category="Thumbs">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Black Obsidian Worry Stone</div>
-            <div class="gallery-code">Code: THM-002</div>
-          </div>
-        </div>
-
-        <!-- Pendulum -->
-        <div class="gallery-item" data-name="Clear Quartz Pendulum" data-code="PND-001" data-category="Pendulum">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Clear Quartz Pendulum</div>
-            <div class="gallery-code">Code: PND-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="7 Chakra Pendulum" data-code="PND-002" data-category="Pendulum">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">7 Chakra Pendulum</div>
-            <div class="gallery-code">Code: PND-002</div>
-          </div>
-        </div>
-
-        <!-- Agate trees -->
-        <div class="gallery-item" data-name="7 Chakra Gemstone Tree" data-code="TRE-001" data-category="Agate trees">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">7 Chakra Gemstone Tree</div>
-            <div class="gallery-code">Code: TRE-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Amethyst Gemstone Tree" data-code="TRE-002" data-category="Agate trees">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Amethyst Gemstone Tree</div>
-            <div class="gallery-code">Code: TRE-002</div>
-          </div>
-        </div>
-
-        <!-- Merkaba -->
-        <div class="gallery-item" data-name="Clear Quartz Merkaba" data-code="MRK-001" data-category="Merkaba">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Clear Quartz Merkaba</div>
-            <div class="gallery-code">Code: MRK-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Amethyst Merkaba" data-code="MRK-002" data-category="Merkaba">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Amethyst Merkaba</div>
-            <div class="gallery-code">Code: MRK-002</div>
-          </div>
-        </div>
-
-        <!-- Raw Chunks -->
-        <div class="gallery-item" data-name="Amethyst Raw Chunk" data-code="RAW-001" data-category="Raw Chunks">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Amethyst Raw Chunk</div>
-            <div class="gallery-code">Code: RAW-001</div>
-          </div>
-        </div>
-        <div class="gallery-item" data-name="Black Tourmaline Raw Chunk" data-code="RAW-002" data-category="Raw Chunks">
-          <div class="gallery-thumb"></div>
-          <div class="gallery-info">
-            <div class="gallery-name">Black Tourmaline Raw Chunk</div>
-            <div class="gallery-code">Code: RAW-002</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODAL -->
-    <div class="modal-backdrop" id="modal-backdrop">
-      <div class="modal">
-        <div class="modal-close" id="modal-close">&times;</div>
-        <div class="modal-image"></div>
-        <div class="modal-details">
-          <h3 id="modal-name">Product name</h3>
-          <p><span class="code" id="modal-code">Code: XXX-000</span></p>
-          <p id="modal-category">Category: —</p>
-          <p class="hint">
-            To order or inquire, mention this product code and category in your WhatsApp or email message.
-          </p>
-        </div>
-      </div>
+    <!-- TUMBLED -->
+    <div class="gallery-item" data-category="tumbled" data-name="Black Agate Tumbled" data-code="TUM-BLK">
+      <img src="tumbled-blackagate.jpg">
+      <div class="name">Black Agate Tumbled</div>
+      <div class="code">TUM-BLK</div>
     </div>
 
-    <!-- REVIEWS -->
-    <section id="reviews" class="reviews">
-      <h3 class="section-title">What our buyers say</h3>
-      <p class="section-sub">
-        Real feedback from shops and wholesalers who regularly source agate and crystal products from us.
-      </p>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-header">
-            <div>
-              <div class="review-name">Wholesale Buyer – Canada</div>
-              <div class="review-role">Crystal & metaphysical shop</div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-          <div class="review-body">
-            “Consistent quality and reliable packing. Tumbled stones and towers arrive ready for retail shelves.”
-          </div>
-          <div class="review-meta">Repeat orders • Mixed chakra sets • Tumbled stones</div>
-        </div>
-        <div class="review-card">
-          <div class="review-header">
-            <div>
-              <div class="review-name">Retail Store – USA</div>
-              <div class="review-role">Gift & décor boutique</div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-          <div class="review-body">
-            “Our customers love the spheres, hearts and angels. Communication is clear and shipping is on time.”
-          </div>
-          <div class="review-meta">Spheres • Puffy hearts • Angels</div>
-        </div>
-        <div class="review-card">
-          <div class="review-header">
-            <div>
-              <div class="review-name">Online Seller – Europe</div>
-              <div class="review-role">E‑commerce crystal shop</div>
-            </div>
-            <div class="review-stars">★★★★☆</div>
-          </div>
-          <div class="review-body">
-            “Great value on raw chunks and pendulums. We appreciate the ability to customize mixed lots.”
-          </div>
-          <div class="review-meta">Raw chunks • Pendulums • Custom assortments</div>
-        </div>
-      </div>
-    </section>
+    <div class="gallery-item" data-category="tumbled" data-name="Blue Lace Agate Tumbled" data-code="TUM-BLA">
+      <img src="tumbled-bluelace.jpg">
+      <div class="name">Blue Lace Agate Tumbled</div>
+      <div class="code">TUM-BLA</div>
+    </div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <div class="contact-card contact-highlight">
-        <h3>Manufacturing unit – India</h3>
-        <p><strong>Location:</strong> Khambhat, Gujarat, India</p>
-        <p><strong>WhatsApp:</strong> +91&nbsp;XXXXXXXXXX</p>
-        <p><strong>Email:</strong> aatifagateexport@example.com</p>
-        <p>
-          When you contact us, please include:
-          product codes, quantities, preferred stones and destination country.
-        </p>
-      </div>
-      <div class="contact-card">
-        <h3>International & wholesale inquiries</h3>
-        <p><strong>Preferred contact:</strong> WhatsApp & email</p>
-        <p><strong>Business hours:</strong> Monday – Saturday, 9:00 AM – 7:00 PM (IST)</p>
-        <p>
-          You can also share your website or social media profile so we understand your market and suggest
-          suitable product mixes.
-        </p>
-      </div>
-    </section>
+    <div class="gallery-item" data-category="tumbled" data-name="Dalmatian Jasper Tumbled" data-code="TUM-DAL">
+      <img src="tumbled-dalmatian.jpg">
+      <div class="name">Dalmatian Jasper Tumbled</div>
+      <div class="code">TUM-DAL</div>
+    </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <div>© <span>Aatif Agate Export</span> – Khambhat, India • Premium agate & crystal manufacturer.</div>
-      <div>Designed with a 3D glassmorphism interface for a unique buyer experience.</div>
-    </footer>
+    <div class="gallery-item" data-category="tumbled" data-name="Howlite Tumbled" data-code="TUM-HWL">
+      <img src="tumbled-howlite.jpg">
+      <div class="name">Howlite Tumbled</div>
+      <div class="code">TUM-HWL</div>
+    </div>
+
+    <div class="gallery-item" data-category="tumbled" data-name="Kambaba Jasper Tumbled" data-code="TUM-KAM">
+      <img src="tumbled-kambaba.jpg">
+      <div class="name">Kambaba Jasper Tumbled</div>
+      <div class="code">TUM-KAM</div>
+    </div>
+
+    <div class="gallery-item" data-category="tumbled" data-name="Lapis Lazuli Tumbled" data-code="TUM-LAP">
+      <img src="tumbled-lapis.jpg">
+      <div class="name">Lapis Lazuli Tumbled</div>
+      <div class="code">TUM-LAP</div>
+    </div>
+
+    <div class="gallery-item" data-category="tumbled" data-name="Moss Agate Tumbled" data-code="TUM-MOS">
+      <img src="tumbled-mossagate.jpg">
+      <div class="name">Moss Agate Tumbled</div>
+      <div class="code">TUM-MOS</div>
+    </div>
+
+    <div class="gallery-item" data-category="tumbled" data-name="Rose Quartz Tumbled" data-code="TUM-ROS">
+      <img src="tumbled-rosequartz.jpg">
+      <div class="name">Rose Quartz Tumbled</div>
+      <div class="code">TUM-ROS</div>
+    </div>
+
+    <div class="gallery-item" data-category="tumbled" data-name="Sodalite Tumbled" data-code="TUM-SDL">
+      <img src="tumbled-sodalite.jpg">
+      <div class="name">Sodalite Tumbled</div>
+      <div class="code">TUM-SDL</div>
+    </div>
+
+    <div class="gallery-item" data-category="tumbled" data-name="Tiger Eye Tumbled" data-code="TUM-TIG">
+      <img src="tumbled-tigereye.jpg">
+      <div class="name">Tiger Eye Tumbled</div>
+      <div class="code">TUM-TIG</div>
+    </div>
+
+    <!-- SPHERES -->
+    <div class="gallery-item" data-category="spheres" data-name="Black Agate Sphere" data-code="SPH-BLK">
+      <img src="sphere-black.jpg">
+      <div class="name">Black Agate Sphere</div>
+      <div class="code">SPH-BLK</div>
+    </div>
+
+    <div class="gallery-item" data-category="spheres" data-name="Mahogany Obsidian Sphere" data-code="SPH-MHG">
+      <img src="sphere-mahogany.jpg">
+      <div class="name">Mahogany Obsidian Sphere</div>
+      <div class="code">SPH-MHG</div>
+    </div>
+
+    <div class="gallery-item" data-category="spheres" data-name="Sodalite Sphere" data-code="SPH-SDL">
+      <img src="sphere-sodalite.jpg">
+      <div class="name">Sodalite Sphere</div>
+      <div class="code">SPH-SDL</div>
+    </div>
+
+    <!-- HEARTS -->
+    <div class="gallery-item" data-category="hearts" data-name="Opalite Puffy Heart" data-code="HRT-OPL">
+      <img src="heart-opalite.jpg">
+      <div class="name">Opalite Puffy Heart</div>
+      <div class="code">HRT-OPL</div>
+    </div>
+
+    <div class="gallery-item" data-category="hearts" data-name="White Agate Puffy Heart" data-code="HRT-WHT">
+      <img src="heart-white.jpg">
+      <div class="name">White Agate Puffy Heart</div>
+      <div class="code">HRT-WHT</div>
+    </div>
+
+    <div class="gallery-item" data-category="hearts" data-name="White Agate Puffy Heart (Variant)" data-code="HRT-WHT-2">
+      <img src="heart-white-2.jpg">
+      <div class="name">White Agate Puffy Heart (Variant)</div>
+      <div class="code">HRT-WHT-2</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal">
+    <div class="modal-close" id="modal-close">✕</div>
+    <img id="modal-img">
+    <h3 id="modal-name"></h3>
+    <p id="modal-code"></p>
+    <p id="modal-cat"></p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div class="contact-card">
+    <h3>Manufacturing Unit – India</h3>
+    <p><strong>Location:</strong> Khambhat, Gujarat, India</p>
+    <p><strong>WhatsApp:</strong> +91 9979421071</p>
+    <p><strong>Email:</strong> shifaagate@gmail.com</p>
+    <p>Include product codes, quantities, preferred stones and destination country.</p>
   </div>
 
-  <script>
-    // Modal logic
-    const galleryItems = document.querySelectorAll(".gallery-item");
-    const modalBackdrop = document.getElementById("modal-backdrop");
-    const modalClose = document.getElementById("modal-close");
-    const modalName = document.getElementById("modal-name");
-    const modalCode = document.getElementById("modal-code");
-    const modalCategory = document.getElementById("modal-category");
+  <div class="contact-card">
+    <h3>International & Wholesale Inquiries</h3>
+    <p><strong>WhatsApp:</strong> +1 4375565942</p>
+    <p><strong>Email:</strong> mansurikashfi@gmail.com</p>
+    <p><strong>Business Hours:</strong> Mon–Sat, 9 AM – 7 PM (IST)</p>
+  </div>
+</section>
 
-    galleryItems.forEach(item => {
-      item.addEventListener("click", () => {
-        const name = item.getAttribute("data-name");
-        const code = item.getAttribute("data-code");
-        const category = item.getAttribute("data-category");
-        modalName.textContent = name;
-        modalCode.textContent = "Code: " + code;
-        modalCategory.textContent = "Category: " + category;
-        modalBackdrop.style.display = "flex";
-      });
-    });
+<script>
 
-    modalClose.addEventListener("click", () => {
-      modalBackdrop.style.display = "none";
-    });
-
-    modalBackdrop.addEventListener("click", (e) => {
-      if (e.target === modalBackdrop) {
-        modalBackdrop.style.display = "none";
-      }
-    });
-
-    // Category click: scroll to filtered gallery
-    const categoryCards = document.querySelectorAll(".category-card");
-    const galleryGrid = document.getElementById("gallery-grid");
-
-    categoryCards.forEach(card => {
-      card.addEventListener("click", () => {
-        const category = card.getAttribute("data-category");
-        const items = galleryGrid.querySelectorAll(".gallery-item");
-        items.forEach(item => {
-          const itemCategory = item.getAttribute("data-category");
-          item.style.display = (itemCategory === category) ? "block" : "none";
-        });
-        document.getElementById("gallery").scrollIntoView({ behavior: "smooth" });
-      });
-    });
-  </script>
-</body>
-</html>
+/* ------------------------------
+   3D LOGO AN
